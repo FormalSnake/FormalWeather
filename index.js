@@ -6,7 +6,7 @@ try {
 const {
   getWindowSettings,
   saveBounds,
-} = require("./settings");
+} = require("./utils/settings");
 
 function createWindow() {
   const bounds = getWindowSettings();
@@ -22,13 +22,10 @@ function createWindow() {
     }
   })
 
-  win.loadFile('index.html')
+  win.loadFile('./pages/weather.html')
   win.setVibrancy("hud");
   win.on("resized", () => saveBounds(win.getSize()));
 
-  globalShortcut.register("CommandOrControl+,", () => {
-    win.loadURL(`file://${__dirname}/settings.html`);
-  });
 }
 
 app.whenReady().then(() => {
