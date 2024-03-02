@@ -5,12 +5,21 @@
   "main": "index.js",
   "scripts": {
     "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "FormalSnake",
   "license": "ISC",
+  "build": {
+    "appId": "com.formalsnake.weather",
+    "mac": {
+      "category": "com.formalsnake.weather"
+    }
+  },
   "devDependencies": {
     "electron": "^29.1.0",
+    "electron-builder": "^24.12.0",
     "electron-reloader": "^1.2.3"
   },
   "dependencies": {
