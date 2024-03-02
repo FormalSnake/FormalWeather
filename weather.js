@@ -5,7 +5,7 @@ async function fetchWeatherData(lat, long) {
 
     const condition = data.current_weather.weathercode;
     const temp = Math.floor(data.current_weather.temperature);
-    const feelslike = data.current_weather.temperature; // Open-Meteo doesn't provide 'feels like' temperature
+    const feelslike = data.current_weather.temperature;
     const windspeed = data.current_weather.windspeed;
 
     // Determine if it's day or night
@@ -13,7 +13,6 @@ async function fetchWeatherData(lat, long) {
     const currentHour = currentDate.getHours();
     const isDay = currentHour >= 6 && currentHour < 18;
 
-    // Day weather icons with comments
     const weatherIconsDay = {
       "0": "",  // Sunny/113
       "1": "",  // Sunny/113
@@ -45,7 +44,6 @@ async function fetchWeatherData(lat, long) {
       "99": "", // Ice pellets/350
     };
 
-    // Night weather icons with comments
     const weatherIconsNight = {
       "0": "",  // Sunny/113
       "1": "",  // Sunny/113
@@ -88,9 +86,6 @@ async function fetchWeatherData(lat, long) {
     console.error('Error fetching weather data:', error);
   }
 }
-
-// Call the function to update weather on app start
-// fetchWeatherData();
 
 async function requestLocationFromIP() {
   try {
