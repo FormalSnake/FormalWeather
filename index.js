@@ -1,13 +1,19 @@
-const { app, BrowserWindow } = require('electron/main')
+const { app, BrowserWindow, globalShortcut } = require('electron/main')
 const path = require('node:path')
 try {
   require('electron-reloader')(module)
 } catch (_) { }
+const {
+  getWindowSettings,
+  saveBounds,
+} = require("./settings");
 
 function createWindow() {
+  const bounds = getWindowSettings();
+  console.log(bounds);
   const win = new BrowserWindow({
-    width: 800,
-    height: 600,
+    width: bounds[0],
+    height: bounds[1],
     titleBarStyle: "hiddenInset",
     transparent: true,
     webPreferences: {
@@ -18,6 +24,11 @@ function createWindow() {
 
   win.loadFile('index.html')
   win.setVibrancy("hud");
+  win.on("resized", () => saveBounds(win.getSize()));
+
+  globalShortcut.register("CommandOrControl+,", () => {
+    win.loadURL(`file://${__dirname}/settings.html`);
+  });
 }
 
 app.whenReady().then(() => {

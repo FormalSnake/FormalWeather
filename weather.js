@@ -109,3 +109,5 @@ async function requestLocationFromIP() {
 
 // Call the function to request location from IP on app start
 requestLocationFromIP();
+
+setInterval(requestLocationFromIP, 60000);
