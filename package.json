@@ -1,0 +1,19 @@
+{
+  "name": "formalweather",
+  "version": "1.0.0",
+  "description": "It is a simple weather app using text only",
+  "main": "index.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "FormalSnake",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^29.1.0",
+    "electron-reloader": "^1.2.3"
+  },
+  "dependencies": {
+    "electron-get-location": "^1.0.1"
+  }
+}
