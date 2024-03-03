@@ -16,6 +16,7 @@ function createWindow() {
     height: bounds[1],
     titleBarStyle: "hiddenInset",
     transparent: true,
+    visualEffectState: "active",
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
       nodeIntegration: true
